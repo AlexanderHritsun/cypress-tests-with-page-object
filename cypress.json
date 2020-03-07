@@ -1,4 +1,5 @@
 {
   "baseUrl": "https://rozetka.com.ua/",
-  "integrationFolder": "tests"
+  "integrationFolder": "tests",
+  "chromeWebSecurity": false
 }

@@ -3,6 +3,8 @@ import {addItemToShoppingBasket, removeItemFromBasket, searchItem} from "./helpe
 describe('Shopping basket test', () => {
     beforeEach(() => {
         cy.server();
+        cy.clearCookies();
+        cy.clearLocalStorage();
     });
     describe('Search item', () => {
         it('Positive case', () => {
@@ -10,12 +12,6 @@ describe('Shopping basket test', () => {
         });
     });
     describe('Add item to the basket', () => {
-        it('Steps', () => {
-            searchItem('macbook');
-            addItemToShoppingBasket('Ноутбук Apple MacBook Pro 13" Retina 128Gb (MUHQ2UA/A) Silver');
-        })
-    });
-    describe('Remove item from the basket', () => {
         it('Steps', () => {
             searchItem('macbook');
             addItemToShoppingBasket('Ноутбук Apple MacBook Pro 13" Retina 128Gb (MUHQ2UA/A) Silver');

@@ -15,21 +15,21 @@ export const waitRequest = (alias, status) => {
 export const addItemToShoppingBasket = (itemFullName) => {
   cy.get('a')
       .contains(itemFullName)
-      .nextAll('aria-label="Купить"')
+      .parent()
+      .nextUntil('.goods-tile__price')
+      .find('.buy-button')
       .click({force:true});
+  cy.wait(700);
   cy.get('div[modaloverlay="modal"]')
       .should('be.exist');
 };
 export const removeItemFromBasket = (searchParameter, itemFullName) => {
     searchItem(searchParameter);
     addItemToShoppingBasket(itemFullName);
-    cy.reload();
     cy.wait(500);
-    cy.get('.button_type_basket')
+    cy.get('.cart-modal__remove')
         .click({force:true});
-    cy.get('aria-label="Удалить товар из корзины"')
-        .click({force:true});
-    cy.get('a[.control_type_remove]')
+    cy.get('.cart-modal__actions-control_type_remove')
         .click({force:true});
     cy.get('div')
         .contains(' Корзина пуста ')
