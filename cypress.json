@@ -1,5 +1,6 @@
 {
-  "baseUrl": "https://rozetka.com.ua/",
+  "baseUrl": "https://www.stxnext.com/",
   "integrationFolder": "tests",
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "viewportWidth":  1100
 }
